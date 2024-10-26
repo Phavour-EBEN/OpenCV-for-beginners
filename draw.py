@@ -5,11 +5,11 @@ blank = np.zeros((500,500,3), dtype='uint8')
 cv.imshow('blank', blank)
 
 # adding colors to yhe blank screen
-# blank[:] = 255,0,0
-# cv.imshow('blank-green', blank)
+blank[:] = 255,0,0
+cv.imshow('blank-green', blank)
 
 # drawing a rectangle on the plane
-'''
+
 cv.rectangle(blank, (0,0), (250,250),(0,255,0), thickness=2)
 cv.imshow('rectangle', blank)
 '''
@@ -23,7 +23,15 @@ cv.circle(blank,
           thickness=1)
 
 cv.imshow('circle', blank)
-'''
-# Adding text to a frame
 
+# Adding text to a frame
+cv.putText(blank, 
+           "Hello Opencv", 
+           (255,255),
+           cv.FONT_HERSHEY_COMPLEX_SMALL,
+           (2.0),
+           (0,0,255),
+           thickness=2)
+
+cv.imshow("TextOnPlane",blank)
 cv.waitKey(0)
