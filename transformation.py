@@ -22,6 +22,22 @@ x---right
 -y--up
 y---down
 '''
-trans_img = img_tranformatioN(img, 250,250)
+trans_img = img_tranformatioN(img, -250,250)
 cv.imshow("Translated Image", trans_img)
+
+# rotation
+
+def rotate(img, angle, rotPoint=None):
+    if rotPoint is None:
+        rotPoint = (img.shape[1]//2, img.shape[0]//2)
+
+    coordinate = (img.shape[1], img.shape[0])
+    matrix = cv.getRotationMatrix2D(rotPoint, angle, 1)
+
+    return cv.warpAffine(img, matrix, coordinate)
+
+rotated_img = rotate(img, 45)
+cv.imshow("Rotated Image", rotated_img) 
+
+
 cv.waitKey(0)
