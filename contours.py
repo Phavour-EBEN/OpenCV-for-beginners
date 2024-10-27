@@ -31,6 +31,13 @@ cv.imshow('threh', thresh)
 # fing the contours
 contours, hierarchies = cv.findContours(thresh, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE)
 print(len(contours))
+# blank img
+blank = np.zeros(image.shape, dtype='uint8')
+cv.imshow("blank", blank)
+
+# drawing contours
+contours_drawn = cv.drawContours(blank, contours, -1, (0,0,225), 1)
+cv.imshow("contours", contours_drawn)
 
 
 cv.waitKey(0)
