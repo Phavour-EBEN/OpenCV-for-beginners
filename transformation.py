@@ -5,7 +5,7 @@ img = cv.imread('photos\photo_5878501912922403677_x.jpg')
 cv.imshow("Image", img)
 
 # Cropping function
-crop_img = img[50:250, 0:250]
+crop_img = img[20:400, 0:400]
 cv.imshow("Cropped Image", crop_img)
 
 # Transformation
@@ -36,8 +36,13 @@ def rotate(img, angle, rotPoint=None):
 
     return cv.warpAffine(img, matrix, coordinate)
 
-rotated_img = rotate(img, 45)
+rotated_img = rotate(img, 90)
 cv.imshow("Rotated Image", rotated_img) 
+
+# fipping
+flip = cv.flip(img,0)
+
+cv.imshow("Flipped Image", flip)
 
 
 cv.waitKey(0)
