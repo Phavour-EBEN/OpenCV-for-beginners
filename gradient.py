@@ -14,5 +14,13 @@ def resize(image, scale=0.5):
 resized_image = resize(image)
 cv.imshow('image', resized_image)
 
+# converting to gray scale
+gray = cv.cvtColor(resized_image, cv.COLOR_BGR2GRAY)
+cv.imshow('gray', gray)
+
+# laplacian transformation(edge detection)pencil format
+lap = cv.Laplacian(gray, cv.CV_64F)
+lap = np.uint8(np.absolute(lap))
+cv.imshow('laplacian', lap, )
 
 cv.waitKey(0)
