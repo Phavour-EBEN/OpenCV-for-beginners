@@ -23,4 +23,13 @@ lap = cv.Laplacian(gray, cv.CV_64F)
 lap = np.uint8(np.absolute(lap))
 cv.imshow('laplacian', lap, )
 
+# sobel detection
+sobelx = cv.Sobel(gray, cv.CV_64F, 1,0)
+sobely = cv.Sobel(gray, cv.CV_64F, 0,1)
+combine_sobel = cv.bitwise_or(sobelx, sobely)
+cv.imshow("sobel", combine_sobel)
+
+canny = cv.Canny(gray, 100,200)
+cv.imshow("canny", canny)
+
 cv.waitKey(0)
