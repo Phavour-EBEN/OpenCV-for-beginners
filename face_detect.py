@@ -23,6 +23,6 @@ print(f'Number of faces found is: {len(face_rect)}')
 
 for (x, y, w, h) in face_rect:
     cv.rectangle(image, (x,y), (x+w, y+h), (0,255,0),  2)
-cv.imshow('detected face', image)    
+cv.imshow('detected face', image)
 
 cv.waitKey(0)
